@@ -1,0 +1,250 @@
+/* ================================================== */
+/*  THEME: Soft Pastel Light (high-contrast inputs)   */
+/* ================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --ink: #1e293b;          /* main dark text */
+    --ink-soft: #475569;     /* secondary text */
+    --brand-1: #6366f1;      /* indigo */
+    --brand-2: #ec4899;      /* pink */
+    --brand-3: #06b6d4;      /* cyan */
+    --card: rgba(255, 255, 255, 0.75);
+    --line: rgba(99, 102, 241, 0.18);
+}
+
+html, body, [class*="css"], .stApp {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ---------- Background ---------- */
+.stApp {
+    background:
+        radial-gradient(circle at 10% 10%, rgba(236, 72, 153, 0.14), transparent 40%),
+        radial-gradient(circle at 90% 15%, rgba(6, 182, 212, 0.16), transparent 40%),
+        radial-gradient(circle at 60% 95%, rgba(99, 102, 241, 0.14), transparent 45%),
+        linear-gradient(160deg, #fdf4ff 0%, #eff6ff 50%, #ecfeff 100%);
+    background-attachment: fixed;
+    color: var(--ink);
+}
+
+header[data-testid="stHeader"] {
+    background: transparent;
+}
+
+.block-container {
+    max-width: 1100px;
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    padding: 1.5rem 1rem 1rem 1rem;
+    text-align: center;
+    animation: fadeDown 0.7s ease both;
+}
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.3rem;
+    color: var(--ink);                 /* solid colour: emoji shows properly */
+    text-shadow: 3px 3px 0 rgba(99, 102, 241, 0.18);
+}
+.hero p {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--ink-soft);
+    margin-top: 0;
+}
+
+/* ---------- Section titles ---------- */
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--brand-1);
+    margin: 2rem 0 0.8rem 0;
+}
+.section-title::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--brand-2), var(--brand-1));
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+.section-title::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--line), transparent);
+}
+
+/* ---------- Labels ---------- */
+div[data-testid="stWidgetLabel"] p,
+label {
+    color: #334155 !important;
+    font-weight: 600 !important;
+    font-size: 0.88rem !important;
+}
+
+/* ---------- Inputs: white box + DARK text (always visible) ---------- */
+div[data-baseweb="select"] > div,
+div[data-baseweb="input"],
+div[data-baseweb="base-input"] {
+    background-color: #ffffff !important;
+    border: 1.5px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.06);
+    transition: all 0.2s ease;
+}
+div[data-baseweb="select"] > div:hover,
+div[data-baseweb="input"]:hover {
+    border-color: var(--brand-1) !important;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.18);
+}
+div[data-baseweb="select"] > div:focus-within,
+div[data-baseweb="input"]:focus-within {
+    border-color: var(--brand-2) !important;
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.2);
+}
+
+/* Text shown inside the boxes */
+div[data-baseweb="select"] *,
+div[data-baseweb="input"] input,
+input {
+    color: #1e293b !important;
+    -webkit-text-fill-color: #1e293b !important;
+    font-weight: 500;
+}
+div[data-baseweb="select"] svg {
+    fill: var(--brand-1) !important;
+}
+
+/* Number input +/- */
+button[data-testid="stNumberInputStepDown"],
+button[data-testid="stNumberInputStepUp"] {
+    background: #f1f5f9 !important;
+    color: var(--brand-1) !important;
+}
+button[data-testid="stNumberInputStepDown"]:hover,
+button[data-testid="stNumberInputStepUp"]:hover {
+    background: var(--brand-1) !important;
+    color: #ffffff !important;
+}
+
+/* Dropdown list */
+ul[role="listbox"],
+div[data-baseweb="popover"] ul {
+    background: #ffffff !important;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+}
+li[role="option"] {
+    color: #1e293b !important;
+}
+li[role="option"]:hover,
+li[aria-selected="true"] {
+    background: rgba(99, 102, 241, 0.12) !important;
+}
+
+/* ---------- Predict button ---------- */
+.stButton > button {
+    width: 100%;
+    margin-top: 1rem;
+    background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    padding: 0.8rem 0;
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(99, 102, 241, 0.35);
+    transition: all 0.25s ease;
+}
+.stButton > button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(236, 72, 153, 0.4);
+    color: #ffffff;
+}
+.stButton > button:active {
+    transform: translateY(0) scale(0.99);
+}
+
+/* ---------- Result cards ---------- */
+.result-card {
+    margin-top: 2rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border-radius: 20px;
+    background: var(--card);
+    animation: popIn 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+.result-card h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0.4rem 0;
+}
+.result-card p {
+    color: var(--ink-soft);
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.result-card.stay {
+    background: linear-gradient(135deg, #dcfce7, #f0fdf4);
+    border: 2px solid #86efac;
+    box-shadow: 0 10px 30px rgba(34, 197, 94, 0.2);
+}
+.result-card.stay h2 { color: #15803d; }
+
+.result-card.churn {
+    background: linear-gradient(135deg, #fee2e2, #fff1f2);
+    border: 2px solid #fca5a5;
+    box-shadow: 0 10px 30px rgba(239, 68, 68, 0.2);
+}
+.result-card.churn h2 { color: #b91c1c; }
+
+/* ---------- Footer ---------- */
+.footer {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    margin-top: 3rem;
+    padding-top: 1.2rem;
+    border-top: 2px solid var(--line);
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--brand-1), var(--brand-2));
+    border-radius: 8px;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.92) translateY(16px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+    .hero h1 { font-size: 1.9rem; }
+    .result-card h2 { font-size: 1.6rem; }
+}
